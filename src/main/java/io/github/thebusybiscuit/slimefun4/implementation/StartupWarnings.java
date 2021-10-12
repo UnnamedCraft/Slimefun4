@@ -25,23 +25,22 @@ final class StartupWarnings {
     @ParametersAreNonnullByDefault
     static void discourageCSCoreLib(Logger logger) {
         logger.log(Level.WARNING, BORDER);
-        logger.log(Level.WARNING, PREFIX + "It looks like you are still using CS-CoreLib.");
+        logger.log(Level.WARNING, PREFIX + "似乎你还在使用 CS-CoreLib.");
         logger.log(Level.WARNING, PREFIX);
-        logger.log(Level.WARNING, PREFIX + "Slimefun no longer requires CS-CoreLib to be");
-        logger.log(Level.WARNING, PREFIX + "installed as of January 30th 2021. It is safe");
-        logger.log(Level.WARNING, PREFIX + "to remove and we recommend you to uninstall");
-        logger.log(Level.WARNING, PREFIX + "CS-CoreLib from your server immediately.");
+        logger.log(Level.WARNING, PREFIX + "Slimefun 自 2021/01/30 起");
+        logger.log(Level.WARNING, PREFIX + "就不再强制依赖 CS-CoreLib 了");
+        logger.log(Level.WARNING, PREFIX + "我们推荐你马上删除/卸载 CS-CoreLib");
         logger.log(Level.WARNING, BORDER);
     }
 
     @ParametersAreNonnullByDefault
     static void invalidMinecraftVersion(Logger logger, int majorVersion, String slimefunVersion) {
         logger.log(Level.SEVERE, BORDER);
-        logger.log(Level.SEVERE, PREFIX + "Slimefun was not installed correctly!");
-        logger.log(Level.SEVERE, PREFIX + "You are using the wrong version of Minecraft!");
+        logger.log(Level.SEVERE, PREFIX + "Slimefun 未被正确安装!");
+        logger.log(Level.SEVERE, PREFIX + "你正在使用不支持的 Minecraft 版本!");
         logger.log(Level.SEVERE, PREFIX);
-        logger.log(Level.SEVERE, PREFIX + "You are using Minecraft 1.{0}.x", majorVersion);
-        logger.log(Level.SEVERE, PREFIX + "but Slimefun {0} requires you to be using", slimefunVersion);
+        logger.log(Level.SEVERE, PREFIX + "你正在使用 Minecraft 1.{0}.x", majorVersion);
+        logger.log(Level.SEVERE, PREFIX + "但 Slimefun {0} 只支持", slimefunVersion);
         logger.log(Level.SEVERE, PREFIX + "Minecraft {0}", String.join(" / ", Slimefun.getSupportedVersions()));
         logger.log(Level.SEVERE, BORDER);
     }
@@ -49,12 +48,12 @@ final class StartupWarnings {
     @ParametersAreNonnullByDefault
     static void invalidServerSoftware(Logger logger) {
         logger.log(Level.SEVERE, BORDER);
-        logger.log(Level.SEVERE, PREFIX + "Slimefun was not installed correctly!");
-        logger.log(Level.SEVERE, PREFIX + "CraftBukkit is no longer supported!");
+        logger.log(Level.SEVERE, PREFIX + "Slimefun 未被正确安装!");
+        logger.log(Level.SEVERE, PREFIX + "我们不再支持 CraftBukkit 服务端了!");
         logger.log(Level.SEVERE, PREFIX);
-        logger.log(Level.SEVERE, PREFIX + "Slimefun requires you to use Spigot, Paper or");
-        logger.log(Level.SEVERE, PREFIX + "any supported fork of Spigot or Paper.");
-        logger.log(Level.SEVERE, PREFIX + "(We recommend Paper)");
+        logger.log(Level.SEVERE, PREFIX + "Slimefun 需要你使用 Spigot, Paper");
+        logger.log(Level.SEVERE, PREFIX + "或者 Spigot/Paper 分支的任意服务端.");
+        logger.log(Level.SEVERE, PREFIX + "(我们推荐 Paper)");
         logger.log(Level.SEVERE, BORDER);
     }
 
@@ -63,14 +62,13 @@ final class StartupWarnings {
         int javaVersion = NumberUtils.getJavaVersion();
 
         logger.log(Level.WARNING, BORDER);
-        logger.log(Level.WARNING, PREFIX + "Your Java version (Java {0}) is out of date.", javaVersion);
+        logger.log(Level.WARNING, PREFIX + "你的 Java 版本 (Java {0}) 已过时.", javaVersion);
         logger.log(Level.WARNING, PREFIX);
-        logger.log(Level.WARNING, PREFIX + "We recommend you to update to Java 16.");
-        logger.log(Level.WARNING, PREFIX + "Java 16 is required as of Minecraft 1.17 and");
-        logger.log(Level.WARNING, PREFIX + "we would like to utilise all the new features");
-        logger.log(Level.WARNING, PREFIX + "that come with it as soon as possible.");
-        logger.log(Level.WARNING, PREFIX + "Slimefun will also require Java 16 in");
-        logger.log(Level.WARNING, PREFIX + "the foreseeable future, so please update!");
+        logger.log(Level.WARNING, PREFIX + "我们推荐你升级到 Java 16.");
+        logger.log(Level.WARNING, PREFIX + "自 MC 1.17 开始 Minecraft 强制需要 Java 16,");
+        logger.log(Level.WARNING, PREFIX + "我们也想尽快充分利用 Java 16 带来的新特性");
+        logger.log(Level.WARNING, PREFIX + "因此 Slimefun 在不久的将来will also require Java 16 in");
+        logger.log(Level.WARNING, PREFIX + "也会强制需要 Java 16, 所以请更新吧!");
         logger.log(Level.WARNING, BORDER);
     }
 
