@@ -282,7 +282,7 @@ public enum Instruction {
 
     @ParametersAreNonnullByDefault
     public void execute(ProgrammableAndroid android, Block b, BlockMenu inventory, BlockFace face) {
-        Validate.notNull(method, "Instruction '" + name() + "' must be executed manually!");
+        Validate.notNull(method, "说明: '" + name() + "' 需要手动执行！");
         method.perform(android, b, inventory, face);
     }
 
