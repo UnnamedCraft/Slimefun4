@@ -48,7 +48,7 @@ import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils;
  */
 public class AncientPedestal extends SimpleSlimefunItem<BlockDispenseHandler> {
 
-    public static final String ITEM_PREFIX = ChatColors.color("&dALTAR &3Probe - &e");
+    public static final String ITEM_PREFIX = ChatColors.color("&d祭坛&3探索 - &e");
 
     @ParametersAreNonnullByDefault
     public AncientPedestal(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe, ItemStack recipeOutput) {
