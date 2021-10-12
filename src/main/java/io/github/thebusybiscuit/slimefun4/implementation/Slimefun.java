@@ -253,7 +253,7 @@ public final class Slimefun extends JavaPlugin implements SlimefunAddon {
 
         // Check if Paper (<3) is installed
         if (PaperLib.isPaper()) {
-            logger.log(Level.INFO, "Paper was detected! Performance optimizations have been applied.");
+            logger.log(Level.INFO, "检测到 Paper 服务端! 性能优化已应用.");
         } else {
             PaperLib.suggestPaper(this);
         }
@@ -272,14 +272,14 @@ public final class Slimefun extends JavaPlugin implements SlimefunAddon {
         isNewlyInstalled = !new File("data-storage/Slimefun").exists();
 
         // Creating all necessary Folders
-        logger.log(Level.INFO, "Creating directories...");
+        logger.log(Level.INFO, "正在创建文件夹...");
         createDirectories();
 
         // Load various config settings into our cache
         registry.load(this, config);
 
         // Set up localization
-        logger.log(Level.INFO, "Loading language files...");
+        logger.log(Level.INFO, "正在加载语言文件...");
         String chatPrefix = config.getString("options.chat-prefix");
         String serverDefaultLanguage = config.getString("options.language");
         local = new LocalizationService(this, chatPrefix, serverDefaultLanguage);
@@ -288,7 +288,7 @@ public final class Slimefun extends JavaPlugin implements SlimefunAddon {
 
         // Make sure that the network size is a valid input
         if (networkSize < 1) {
-            logger.log(Level.WARNING, "Your 'networks.max-size' setting is misconfigured! It must be at least 1, it was set to: {0}", networkSize);
+            logger.log(Level.WARNING, "'networks.max-size' 大小设置错误! 它必须大于1, 而你设置的是: {0}", networkSize);
             networkSize = 1;
         }
 
@@ -306,22 +306,22 @@ public final class Slimefun extends JavaPlugin implements SlimefunAddon {
         }
 
         // Registering all GEO Resources
-        logger.log(Level.INFO, "Loading GEO-Resources...");
+        logger.log(Level.INFO, "加载矿物资源...");
         GEOResourcesSetup.setup();
 
-        logger.log(Level.INFO, "Loading Tags...");
+        logger.log(Level.INFO, "加载自定义标签...");
         loadTags();
 
-        logger.log(Level.INFO, "Loading items...");
+        logger.log(Level.INFO, "加载物品...");
         loadItems();
 
-        logger.log(Level.INFO, "Loading researches...");
+        logger.log(Level.INFO, "加载研究项目...");
         loadResearches();
 
         registry.setResearchingEnabled(getResearchCfg().getBoolean("enable-researching"));
         PostSetup.setupWiki();
 
-        logger.log(Level.INFO, "Registering listeners...");
+        logger.log(Level.INFO, "正在注册监听器...");
         registerListeners();
 
         // Initiating various Stuff and all items with a slight delay (0ms after the Server finished loading)
@@ -357,12 +357,12 @@ public final class Slimefun extends JavaPlugin implements SlimefunAddon {
         ticker.start(this);
 
         // Loading integrations
-        logger.log(Level.INFO, "Loading Third-Party plugin integrations...");
+        logger.log(Level.INFO, "正在加载第三方插件支持...");
         integrations.start();
         gitHubService.start(this);
 
         // Hooray!
-        logger.log(Level.INFO, "Slimefun has finished loading in {0}", getStartupTime(timestamp));
+        logger.log(Level.INFO, "Slimefun 完成加载, 耗时 {0}", getStartupTime(timestamp));
     }
 
     @Override
@@ -510,7 +510,7 @@ public final class Slimefun extends JavaPlugin implements SlimefunAddon {
                 StartupWarnings.invalidMinecraftVersion(getLogger(), version, getDescription().getVersion());
                 return true;
             } else {
-                getLogger().log(Level.WARNING, "We could not determine the version of Minecraft you were using? ({0})", Bukkit.getVersion());
+                getLogger().log(Level.WARNING, "我们无法识别你正在使用的 Minecraft 版本 (1.{0}.x)", version);
 
                 /*
                  * If we are unsure about it, we will assume "supported".
@@ -521,7 +521,7 @@ public final class Slimefun extends JavaPlugin implements SlimefunAddon {
                 return false;
             }
         } catch (Exception | LinkageError x) {
-            getLogger().log(Level.SEVERE, x, () -> "Error: Could not determine Environment or version of Minecraft for Slimefun v" + getDescription().getVersion());
+            getLogger().log(Level.SEVERE, x, () -> "错误: 无法识别服务器 Minecraft 版本, Slimefun v" + getDescription().getVersion());
 
             // We assume "unsupported" if something went wrong.
             return true;
